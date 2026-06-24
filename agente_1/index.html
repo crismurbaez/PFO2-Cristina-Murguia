@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Case | Resuelve el Misterio del Inglés</title>
+    <meta name="description" content="Aprende inglés memorizando las 1000 palabras más comunes mediante asociaciones lógicas y pistas de detective. Método interactivo premium inspirado en Sherlock Holmes.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SVG Icon Library (Pipelines, magnifying glass, detective themed SVGs) -->
+    <svg style="display: none;">
+        <symbol id="icon-search" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-pipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12h8a4 4 0 0 0 4-4V6" />
+            <path d="M12 12c0 2 1.5 4 4 4h4a2 2 0 0 0 2-2v-2" />
+            <path d="M18 6h4v2h-4z" />
+            <circle cx="6" cy="6" r="2" />
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+        </symbol>
+        <symbol id="icon-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </symbol>
+        <symbol id="icon-notebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </symbol>
+        <symbol id="icon-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <polyline points="19 12 12 19 5 12"/>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+        </symbol>
+    </svg>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-link">
+                <div class="logo">
+                    <svg class="logo-icon"><use href="#icon-pipe"></use></svg>
+                    <span class="logo-text">English<span class="accent-text">Case</span></span>
+                </div>
+            </a>
+            <button class="mobile-nav-toggle" aria-label="Abrir menú" aria-expanded="false" id="mobileNavToggle">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#" class="nav-link active">Inicio</a></li>
+                    <li><a href="#metodo" class="nav-link">El Método</a></li>
+                    <li><a href="#tablero" class="nav-link">Las 1000 Palabras</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-badge">Estudio de Casos Abierto</div>
+            <h1 class="hero-title">
+                Resuelve el misterio del idioma:<br>
+                <span class="accent-gold">Conecta, asocia y domina</span> las 1000 palabras clave.
+            </h1>
+            <p class="hero-subtitle">
+                No memorices listas aburridas. Conecta palabras mediante hilos lógicos en tu mente, simula resolver un expediente en el Londres victoriano y graba el vocabulario para siempre en tu memoria a largo plazo.
+            </p>
+            <div class="hero-actions">
+                <a href="#contacto" class="btn btn-primary">Iniciar Investigación</a>
+                <a href="#tablero" class="btn btn-secondary">Ver Casos de Estudio</a>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Desplazar para explorar</span>
+                <svg class="scroll-arrow"><use href="#icon-arrow-down"></use></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL MÉTODO (DESCRIPCIÓN) -->
+    <section id="metodo" class="method-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Deducción Cognitiva</span>
+                <h2 class="section-title">El Método del Detective</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="method-grid">
+                <div class="method-content">
+                    <h3>¿Por qué olvidamos el vocabulario tradicional?</h3>
+                    <p>
+                        El cerebro humano no está diseñado para recordar datos aislados o listas ordenadas alfabéticamente. Recordamos a través de **contexto, emoción y asociación**. 
+                    </p>
+                    <p>
+                        El método <strong>English Case</strong> transforma cada palabra en una "evidencia" y cada grupo de vocabulario en un "caso policial". Al conectar términos mediante relaciones lógicas, pistas sonoras y narrativas personalizadas, creas un <strong>hilo de conexión neuronal</strong> indestructible.
+                    </p>
+                    <div class="method-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1,000</span>
+                            <span class="stat-label">Palabras Clave (90% del habla cotidiana)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3x</span>
+                            <span class="stat-label">Mayor Retención a Largo Plazo</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="method-visual">
+                    <div class="crime-board-preview">
+                        <div class="pin red-pin" style="top: 15%; left: 25%;"></div>
+                        <div class="pin gold-pin" style="top: 60%; left: 70%;"></div>
+                        <svg class="preview-thread">
+                            <line x1="25%" y1="15%" x2="70%" y2="60%" stroke="#d4af37" stroke-width="2" stroke-dasharray="5,5" />
+                        </svg>
+                        <div class="preview-card card-1">
+                            <span class="card-tag">Evidencia #12</span>
+                            <span class="card-word">WITNESS</span>
+                            <span class="card-translation">Testigo</span>
+                        </div>
+                        <div class="preview-card card-2">
+                            <span class="card-tag">Evidencia #45</span>
+                            <span class="card-word">EYE</span>
+                            <span class="card-translation">Ojo</span>
+                        </div>
+                        <div class="preview-note">
+                            "El testigo (WITNESS) vio el crimen con su propio ojo (EYE)..."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS PRINCIPALES (FEATURES) -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon"><use href="#icon-file"></use></svg>
+                    </div>
+                    <h3 class="feature-title">Subida de Evidencias</h3>
+                    <p class="feature-desc">
+                        Sube tus listas de palabras personalizadas, textos de tu trabajo o lecturas favoritas. La plataforma los analizará para extraer los términos más relevantes e integrarlos en tu panel de investigación.
+                    </p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="feature-card highlighted-card">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon"><use href="#icon-link"></use></svg>
+                    </div>
+                    <h3 class="feature-title">Línea de Conexiones</h3>
+                    <p class="feature-desc">
+                        Toma dos palabras y traza un hilo entre ellas. Diseña tu propia red de relaciones lógicas: antónimos que chocan, sinónimos que cooperan o secuencias de acciones que relatan un acontecimiento en la escena del crimen.
+                    </p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <svg class="feature-icon"><use href="#icon-notebook"></use></svg>
+                    </div>
+                    <h3 class="feature-title">Bitácora del Caso</h3>
+                    <p class="feature-desc">
+                        Escribe la historia o pista detrás de cada conexión. Cuanto más ridícula, trágica o misteriosa sea la asociación ("pista de memoria"), más rápido se fijará en tu memoria subconsciente.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION (DASHBOARD MOCKUP) -->
+    <section id="tablero" class="dashboard-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Laboratorio de Pruebas</span>
+                <h2 class="section-title">El Tablero de Evidencias</h2>
+                <p class="section-subtitle">Simula el funcionamiento de la plataforma. Haz clic en las palabras para abrir su expediente de caso, o activa el <strong>"Modo Enlace"</strong> para conectar conceptos y descubrir pistas.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Interactivity Toolbar -->
+            <div class="dashboard-toolbar">
+                <div class="toolbar-mode-indicator">
+                    <span class="status-dot pulsating"></span>
+                    <span>Caso Activo: <strong>Las Palabras Clave</strong></span>
+                </div>
+                <div class="toolbar-controls">
+                    <button class="toolbar-btn active" id="btnExploreMode">
+                        <svg class="btn-icon"><use href="#icon-search"></use></svg>
+                        Modo Exploración
+                    </button>
+                    <button class="toolbar-btn" id="btnLinkMode">
+                        <svg class="btn-icon"><use href="#icon-link"></use></svg>
+                        Modo Enlace (Hilos)
+                    </button>
+                    <button class="toolbar-btn" id="btnResetBoard">Restablecer Hilos</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Split Layout -->
+            <div class="dashboard-layout">
+                <!-- Left: Board (Corkboard texture via CSS) -->
+                <div class="corkboard-wrapper">
+                    <div class="corkboard" id="corkboard">
+                        <!-- Dynamic SVG for drawing lines -->
+                        <svg class="corkboard-svg" id="corkboardSvg"></svg>
+                        
+                        <!-- Word Cards (Interactive nodes) -->
+                        <!-- Row 1 -->
+                        <div class="word-node" id="node-time" data-word="Time" style="top: 15%; left: 12%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Time</span>
+                            <span class="node-trans">Tiempo</span>
+                        </div>
+                        
+                        <div class="word-node" id="node-evidence" data-word="Evidence" style="top: 10%; left: 45%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Evidence</span>
+                            <span class="node-trans">Evidencia</span>
+                        </div>
+
+                        <div class="word-node" id="node-lock" data-word="Lock" style="top: 18%; left: 75%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Verbo/Sust.</span>
+                            <span class="node-word">Lock</span>
+                            <span class="node-trans">Cerradura</span>
+                        </div>
+
+                        <!-- Row 2 -->
+                        <div class="word-node" id="node-witness" data-word="Witness" style="top: 45%; left: 8%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Witness</span>
+                            <span class="node-trans">Testigo</span>
+                        </div>
+
+                        <div class="word-node" id="node-clock" data-word="Clock" style="top: 48%; left: 42%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Clock</span>
+                            <span class="node-trans">Reloj</span>
+                        </div>
+
+                        <div class="word-node" id="node-key" data-word="Key" style="top: 50%; left: 78%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Key</span>
+                            <span class="node-trans">Llave</span>
+                        </div>
+
+                        <!-- Row 3 -->
+                        <div class="word-node" id="node-eye" data-word="Eye" style="top: 78%; left: 15%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Eye</span>
+                            <span class="node-trans">Ojo</span>
+                        </div>
+
+                        <div class="word-node" id="node-case" data-word="Case" style="top: 82%; left: 48%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Sustantivo</span>
+                            <span class="node-word">Case</span>
+                            <span class="node-trans">Caso</span>
+                        </div>
+
+                        <div class="word-node" id="node-solve" data-word="Solve" style="top: 76%; left: 74%;">
+                            <span class="pin-node"></span>
+                            <span class="node-tag">Verbo</span>
+                            <span class="node-word">Solve</span>
+                            <span class="node-trans">Resolver</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Clue Inspector panel -->
+                <div class="dossier-panel" id="dossierPanel">
+                    <div class="dossier-folder">
+                        <div class="dossier-tab">EXPEDIENTE #1000</div>
+                        <div class="dossier-body">
+                            
+                            <!-- Initial state (No word selected) -->
+                            <div class="dossier-placeholder" id="dossierPlaceholder">
+                                <svg class="dossier-placeholder-icon"><use href="#icon-file"></use></svg>
+                                <h3>Ninguna Evidencia Seleccionada</h3>
+                                <p>Haz clic en cualquier ficha del tablero de la izquierda para extraer su información confidencial y pistas de memoria.</p>
+                                <div class="tutorial-tip">
+                                    <strong>Consejo del Inspector:</strong> Selecciona el <em>"Modo Enlace"</em> arriba para conectar físicamente dos palabras lógicas (Ej. <strong>Witness + Eye</strong> o <strong>Time + Clock</strong>) y ver cómo sus historias se enlazan.
+                                </div>
+                            </div>
+
+                            <!-- Active Word Case Details -->
+                            <div class="dossier-content hidden" id="dossierContent">
+                                <div class="dossier-header-meta">
+                                    <span class="dossier-status">SOLVED / RESUELTO</span>
+                                    <span class="dossier-id" id="dossierWordId">REF-001</span>
+                                </div>
+                                
+                                <h3 class="dossier-title" id="dossierWordName">Witness</h3>
+                                <div class="dossier-ipa" id="dossierWordIpa">/ˈwɪtnəs/</div>
+                                
+                                <div class="dossier-divider"></div>
+
+                                <div class="dossier-info-block">
+                                    <span class="block-label">Significado principal:</span>
+                                    <p class="block-text-large" id="dossierWordTrans">Testigo / Presenciar</p>
+                                </div>
+
+                                <div class="dossier-info-block">
+                                    <span class="block-label">Pista de Memoria / Asociación:</span>
+                                    <p class="block-text" id="dossierWordClue">
+                                        "El <strong>testigo</strong> vio el crimen con su propio ojo..."
+                                    </p>
+                                </div>
+
+                                <div class="dossier-info-block" id="dossierWordConnectionBlock">
+                                    <span class="block-label">Conexiones Activas con este Nodo:</span>
+                                    <div class="connection-badges" id="dossierConnectionsList">
+                                        <!-- badges injected via JS -->
+                                    </div>
+                                </div>
+
+                                <div class="dossier-stamp">
+                                    APPROVED BY AGENT
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS (INSPECTORES GRADUADOS) -->
+    <section id="testimonios" class="testimonios-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Diligencias Completadas</span>
+                <h2 class="section-title">Inspectores Graduados</h2>
+                <p class="section-subtitle">Casos reales de alumnos que descifraron el idioma en tiempo récord.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="testimonios-grid">
+                
+                <!-- Testimonio 1: Inspector James W. -->
+                <div class="testimonio-card">
+                    <div class="pin red-pin"></div>
+                    <div class="dossier-paper">
+                        <div class="paper-header">
+                            <span class="paper-badge">CONFIDENCIAL</span>
+                            <span class="paper-date">14 Oct, 1888</span>
+                        </div>
+                        <p class="testimonio-text">
+                            "Llevaba años intentando memorizar gramática sin éxito. Con el método English Case, mi cerebro conectó de inmediato las palabras clave con pistas visuales. Es como tener un mapa mental detallado de la ciudad. Conseguí la fluidez en mi trabajo de auditoría internacional en 6 meses."
+                        </p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar avatar-1"></div>
+                            <div class="author-info">
+                                <h4 class="author-name">Inspector James W.</h4>
+                                <span class="author-role">Auditor Financiero & Ex-Alumno</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2: Dra. Watson -->
+                <div class="testimonio-card">
+                    <div class="pin gold-pin"></div>
+                    <div class="dossier-paper">
+                        <div class="paper-header">
+                            <span class="paper-badge">CONFIDENCIAL</span>
+                            <span class="paper-date">29 Ene, 1890</span>
+                        </div>
+                        <p class="testimonio-text">
+                            "Como profesional de la medicina, mi tiempo es muy valioso. La bitácora del caso me permitió tejer historias absurdas pero inolvidables para palabras complejas. Sorprendente cómo el cerebro retiene a largo plazo asociaciones que simulan un misterio. Altamente recomendado."
+                        </p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar avatar-2"></div>
+                            <div class="author-info">
+                                <h4 class="author-name">Dra. Watson</h4>
+                                <span class="author-role">Médico Cirujano & Ex-Alumna</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3: Inspector Abberline -->
+                <div class="testimonio-card">
+                    <div class="pin blue-pin"></div>
+                    <div class="dossier-paper">
+                        <div class="paper-header">
+                            <span class="paper-badge">CONFIDENCIAL</span>
+                            <span class="paper-date">03 Mar, 1891</span>
+                        </div>
+                        <p class="testimonio-text">
+                            "Al principio desconfiaba del concepto de las 1000 palabras comunes. Pensé que faltarían términos. Pero descifrar cómo se vinculan entre sí cubre casi todo lo que necesitas para entablar negociaciones y viajar con absoluta confianza. El panel interactivo es una obra de arte."
+                        </p>
+                        <div class="testimonio-author">
+                            <div class="author-avatar avatar-3"></div>
+                            <div class="author-info">
+                                <h4 class="author-name">Inspector Abberline</h4>
+                                <span class="author-role">Director de Logística & Ex-Alumno</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM (ÚNETE A LA AGENCIA) -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-details">
+                    <span class="contact-badge">REGISTRO DE AGENTES</span>
+                    <h2 class="contact-title">Inicia tu Caso Hoy</h2>
+                    <p class="contact-intro">
+                        Solicita una entrevista de nivelación diagnóstica con nuestro inspector jefe. Evaluaremos tus habilidades actuales de vocabulario y te asignaremos tu primer expediente de estudio de forma gratuita.
+                    </p>
+                    
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <div class="info-icon">🕵️‍♂️</div>
+                            <div class="info-content">
+                                <h4>Inspector Jefe</h4>
+                                <p>S. Holmes (Coordinador Académico)</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <h4>Dirección de la Agencia</h4>
+                                <p>221B Baker Street, London, UK</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="case-report-form" id="caseForm">
+                        <h3 class="form-title">Informe de Caso Académico</h3>
+                        
+                        <div class="form-group">
+                            <label for="agentName">Nombre del Investigador</label>
+                            <input type="text" id="agentName" name="name" placeholder="Ej: Inspector Lestrade" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="agentEmail">Correo de Enlace Seguro</label>
+                            <input type="email" id="agentEmail" name="email" placeholder="Ej: lestrade@scotlandyard.gov" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="caseNotes">Notas del Caso (Objetivo de Aprendizaje)</label>
+                            <textarea id="caseNotes" name="notes" rows="4" placeholder="Describe los obstáculos que has enfrentado intentando dominar el inglés..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="btnSubmitForm">
+                            Enviar Solicitud de Expediente
+                        </button>
+                        
+                        <!-- Form response message -->
+                        <div class="form-response hidden" id="formResponse">
+                            <div class="response-stamp">RECIBIDO</div>
+                            <h4>Expediente Registrado con Éxito</h4>
+                            <p id="responseText">El telegrama de confirmación ha sido despachado. Un agente se pondrá en contacto a la brevedad.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg class="logo-icon"><use href="#icon-pipe"></use></svg>
+                        <span class="logo-text">English<span class="accent-text">Case</span></span>
+                    </div>
+                    <p class="footer-desc">El arte de la deducción cognitiva aplicada al aprendizaje acelerado de idiomas.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#metodo">El Método</a></li>
+                        <li><a href="#tablero">Las 1000 Palabras</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Agencia</h4>
+                    <ul>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Seguridad de Datos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 English Case. Todos los derechos reservados. Inspirado en el 221B de Baker Street.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Telegram" class="social-icon">✉</a>
+                    <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+                    <a href="#" aria-label="GitHub" class="social-icon">🐙</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Script -->
+    <script src="script.js"></script>
+</body>
+</html>
