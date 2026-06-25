@@ -85,19 +85,33 @@ Genera el código completo respetando estas instrucciones detalladas.
 ## 📸 Capturas de Pantalla
 
 ### Agente 1 - Antigravity IDE (Gemini 3.5 Flash)
-<img src="./img/agente1/screenshot1.png" alt="Hero & Header" width="100%">
-<img src="./img/agente1/screenshot2.png" alt="El Método del Detective" width="100%">
-<img src="./img/agente1/screenshot3.png" alt="Características del Sistema" width="100%">
-<img src="./img/agente1/screenshot4.png" alt="Tablero de Evidencias - Exploración" width="100%">
-<img src="./img/agente1/screenshot5.png" alt="Tablero de Evidencias - Conexión de Hilos" width="100%">
-<img src="./img/agente1/screenshot6.png" alt="Testimonios de Alumnos" width="100%">
-<img src="./img/agente1/screenshot7.png" alt="Formulario de Registro" width="100%">
-<img src="./img/agente1/screenshot8.png" alt="Pie de Página" width="100%">
+
+<img src="img/agente1/screenshot1.png" alt="Hero & Header" width="100%" />
+<br>
+<img src="img/agente1/screenshot2.png" alt="El Método del Detective" width="100%" />
+<br>
+<img src="img/agente1/screenshot3.png" alt="Características del Sistema" width="100%" />
+<br>
+<img src="img/agente1/screenshot4.png" alt="Tablero de Evidencias - Exploración" width="100%" />
+<br>
+<img src="img/agente1/screenshot5.png" alt="Tablero de Evidencias - Conexión de Hilos" width="100%" />
+<br>
+<img src="img/agente1/screenshot6.png" alt="Testimonios de Alumnos" width="100%" />
+<br>
+<img src="img/agente1/screenshot7.png" alt="Formulario de Registro" width="100%" />
+<br>
+<img src="img/agente1/screenshot8.png" alt="Pie de Página" width="100%" />
 
 ### Agente 2 - OpenCode Desktop (DeepSeek V4)
-<img src="./img/agente2/screenshot1.png" alt="Hero & Header" width="100%">
-<img src="./img/agente2/screenshot2.png" alt="El Método del Detective" width="100%">
-<img src="./img/agente2/screenshot3.png" alt="Características Principales" width="100%">
-<img src="./img/agente2/screenshot4.png" alt="Grilla de Palabras Clave" width="100%">
-<img src="./img/agente2/screenshot5.png" alt="Expediente de Detalle (Modal)" width="100%">
-<img src="./img/agente2/screenshot6.png" alt="Testimonios, Formulario & Footer" width="100%">
+
+<img src="img/agente2/screenshot1.png" alt="Hero & Header" width="100%" />
+<br>
+<img src="img/agente2/screenshot2.png" alt="El Método del Detective" width="100%" />
+<br>
+<img src="img/agente2/screenshot3.png" alt="Características Principales" width="100%" />
+<br>
+<img src="img/agente2/screenshot4.png" alt="Grilla de Palabras Clave" width="100%" />
+<br>
+<img src="img/agente2/screenshot5.png" alt="Expediente de Detalle (Modal)" width="100%" />
+<br>
+<img src="img/agente2/screenshot6.png" alt="Testimonios, Formulario & Footer" width="100%" />
