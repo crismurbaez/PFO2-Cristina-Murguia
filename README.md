@@ -81,3 +81,23 @@ Debes generar una estructura de archivos web (HTML y CSS embebido o en archivo s
 </constraints>
 
 Genera el código completo respetando estas instrucciones detalladas.
+
+## 📸 Capturas de Pantalla
+
+### Agente 1 - Antigravity IDE (Gemini 3.5 Flash)
+![Hero & Header](./img/agente1/screenshot1.png)
+![El Método del Detective](./img/agente1/screenshot2.png)
+![Características del Sistema](./img/agente1/screenshot3.png)
+![Tablero de Evidencias - Exploración](./img/agente1/screenshot4.png)
+![Tablero de Evidencias - Conexión de Hilos](./img/agente1/screenshot5.png)
+![Testimonios de Alumnos](./img/agente1/screenshot6.png)
+![Formulario de Registro](./img/agente1/screenshot7.png)
+![Pie de Página](./img/agente1/screenshot8.png)
+
+### Agente 2 - OpenCode Desktop (DeepSeek V4)
+![Hero & Header](./img/agente2/screenshot1.png)
+![El Método del Detective](./img/agente2/screenshot2.png)
+![Características Principales](./img/agente2/screenshot3.png)
+![Grilla de Palabras Clave](./img/agente2/screenshot4.png)
+![Expediente de Detalle (Modal)](./img/agente2/screenshot5.png)
+![Testimonios, Formulario & Footer](./img/agente2/screenshot6.png)

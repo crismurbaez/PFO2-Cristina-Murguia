@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Case — El Método del Detective</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #f0ece4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 3px; }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .section-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .gold-accent { color: #c9a84c; }
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #c9a84c, transparent);
+      margin: 1.5rem 0;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #c9a84c, #a8882e);
+      color: #0a0a0f;
+      border-radius: 2px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #c9a84c;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 2px;
+    }
+    .btn-outline:hover {
+      background: rgba(201, 168, 76, 0.1);
+      border-color: #c9a84c;
+    }
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.4s ease;
+    }
+    .header.scrolled {
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 0.6rem 0;
+    }
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f0ece4;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border: 2px solid #c9a84c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .logo-icon::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border: 2px solid #c9a84c;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .logo-icon::after {
+      content: '';
+      width: 10px;
+      height: 2px;
+      background: #c9a84c;
+      position: absolute;
+      bottom: 6px;
+      right: 4px;
+      transform: rotate(45deg);
+      border-radius: 1px;
+    }
+    .nav-list {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-list a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: rgba(240, 236, 228, 0.7);
+      transition: color 0.3s;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    .nav-list a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #c9a84c;
+      transition: width 0.3s;
+    }
+    .nav-list a:hover { color: #c9a84c; }
+    .nav-list a:hover::after { width: 100%; }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: #f0ece4;
+      transition: all 0.3s;
+      border-radius: 1px;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 8rem 0 4rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 20% 50%, rgba(201, 168, 76, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 30%, rgba(26, 58, 42, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 80%, rgba(26, 31, 58, 0.2) 0%, transparent 60%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201, 168, 76, 0.3) 40px, rgba(201, 168, 76, 0.3) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201, 168, 76, 0.3) 40px, rgba(201, 168, 76, 0.3) 41px);
+    }
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .gold-accent {
+      display: block;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(240, 236, 228, 0.7);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-card {
+      background: rgba(20, 18, 30, 0.8);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 8px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.2), transparent 50%, rgba(201, 168, 76, 0.1));
+      z-index: -1;
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      margin-bottom: 1.25rem;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(240, 236, 228, 0.5);
+    }
+    .hero-card-header span { color: #c9a84c; }
+    .connection-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(240, 236, 228, 0.05);
+    }
+    .connection-item:last-child { border: none; }
+    .connection-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c9a84c;
+      flex-shrink: 0;
+    }
+    .connection-dot.green { background: #1a5a3a; }
+    .connection-dot.blue { background: #2a3f6a; }
+    .connection-word {
+      font-weight: 500;
+      font-size: 0.9rem;
+      flex: 1;
+    }
+    .connection-hint {
+      font-size: 0.75rem;
+      color: rgba(240, 236, 228, 0.4);
+      font-style: italic;
+    }
+    .hero-card-footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(201, 168, 76, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hero-card-footer small {
+      font-size: 0.7rem;
+      color: rgba(240, 236, 228, 0.35);
+    }
+    .hero-card-footer .badge {
+      padding: 0.25rem 0.6rem;
+      background: rgba(201, 168, 76, 0.15);
+      border-radius: 100px;
+      font-size: 0.65rem;
+      color: #c9a84c;
+    }
+    .floating-line {
+      position: absolute;
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201, 168, 76, 0.4), transparent);
+      top: 30%;
+      left: -60px;
+      transform: rotate(-15deg);
+    }
+    .floating-line:nth-child(2) {
+      top: 70%;
+      left: auto;
+      right: -60px;
+      transform: rotate(20deg);
+      background: linear-gradient(270deg, rgba(201, 168, 76, 0.3), transparent);
+    }
+
+    /* ===== MÉTODO SECTION ===== */
+    .metodo {
+      background: linear-gradient(180deg, #0a0a0f 0%, #0d0c14 100%);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+    }
+    .metodo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .metodo-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .thread-card {
+      background: rgba(20, 18, 30, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 6px;
+      padding: 1.25rem;
+      transition: all 0.3s;
+    }
+    .thread-card:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .thread-card .icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .thread-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: #c9a84c;
+    }
+    .thread-card p {
+      font-size: 0.82rem;
+      color: rgba(240, 236, 228, 0.6);
+      line-height: 1.5;
+    }
+    .thread-card.full {
+      grid-column: 1 / -1;
+    }
+    .metodo-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+    }
+    .metodo-text p {
+      color: rgba(240, 236, 228, 0.7);
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .metodo-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #c9a84c;
+    }
+    .stat-item p {
+      font-size: 0.8rem;
+      margin-bottom: 0;
+      color: rgba(240, 236, 228, 0.5);
+    }
+
+    /* ===== FEATURES ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: rgba(20, 18, 30, 0.5);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-card:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 1.25rem;
+      transition: all 0.3s;
+    }
+    .feature-card:hover .feature-icon {
+      border-color: #c9a84c;
+      background: rgba(201, 168, 76, 0.1);
+    }
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+    .feature-card p {
+      font-size: 0.85rem;
+      color: rgba(240, 236, 228, 0.6);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .feature-number {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: rgba(201, 168, 76, 0.06);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    /* ===== 1000 PALABRAS ===== */
+    .palabras {
+      background: linear-gradient(180deg, #0d0c14, #0a0a0f);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+    }
+    .palabras-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .palabras-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .palabras-controls .filter-btn {
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      background: transparent;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      color: rgba(240, 236, 228, 0.6);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .palabras-controls .filter-btn.active,
+    .palabras-controls .filter-btn:hover {
+      border-color: #c9a84c;
+      color: #c9a84c;
+      background: rgba(201, 168, 76, 0.08);
+    }
+    .word-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 0.75rem;
+      position: relative;
+    }
+    .word-card {
+      background: rgba(20, 18, 30, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.08);
+      border-radius: 4px;
+      padding: 0.9rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.9rem;
+      font-weight: 400;
+      position: relative;
+    }
+    .word-card:hover {
+      border-color: rgba(201, 168, 76, 0.4);
+      background: rgba(201, 168, 76, 0.06);
+      transform: translateY(-2px);
+    }
+    .word-card.connected {
+      border-color: #c9a84c;
+      background: rgba(201, 168, 76, 0.1);
+    }
+    .word-card .word-badge {
+      position: absolute;
+      top: 3px;
+      right: 4px;
+      font-size: 0.55rem;
+      color: rgba(240, 236, 228, 0.25);
+    }
+    .word-card .connection-indicator {
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c9a84c;
+      margin: 4px auto 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .word-card.connected .connection-indicator { opacity: 1; }
+    .word-grid-meta {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(240, 236, 228, 0.35);
+    }
+    .word-grid-meta span { color: #c9a84c; }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+    .modal {
+      background: #12101e;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 8px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s;
+    }
+    .modal-overlay.open .modal { transform: scale(1); }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: rgba(240, 236, 228, 0.4);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .modal-close:hover { color: #c9a84c; }
+    .modal-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #c9a84c;
+      margin-bottom: 0.25rem;
+    }
+    .modal-translation {
+      color: rgba(240, 236, 228, 0.5);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    .modal-section {
+      margin-bottom: 1.25rem;
+    }
+    .modal-section h4 {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(240, 236, 228, 0.35);
+      margin-bottom: 0.5rem;
+    }
+    .modal-connection-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(240, 236, 228, 0.05);
+    }
+    .modal-connection-line:last-child { border: none; }
+    .modal-connection-line .word {
+      font-weight: 500;
+      color: #c9a84c;
+    }
+    .modal-connection-line .hint {
+      font-size: 0.8rem;
+      color: rgba(240, 236, 228, 0.5);
+      font-style: italic;
+    }
+    .modal-note {
+      background: rgba(201, 168, 76, 0.05);
+      border-left: 2px solid #c9a84c;
+      padding: 0.75rem 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.85rem;
+      color: rgba(240, 236, 228, 0.7);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ===== TESTIMONIOS ===== */
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .testimonial-card {
+      background: rgba(20, 18, 30, 0.5);
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(201, 168, 76, 0.25);
+    }
+    .testimonial-card .stars {
+      color: #c9a84c;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .testimonial-card blockquote {
+      font-size: 0.9rem;
+      color: rgba(240, 236, 228, 0.75);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(201, 168, 76, 0.2);
+      background: linear-gradient(135deg, #1a1a2e, #2a1a3e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #c9a84c;
+      font-family: 'Playfair Display', serif;
+      flex-shrink: 0;
+    }
+    .testimonial-info h4 {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .testimonial-info p {
+      font-size: 0.75rem;
+      color: rgba(240, 236, 228, 0.4);
+    }
+
+    /* ===== CONTACTO ===== */
+    .contacto {
+      background: linear-gradient(180deg, #0a0a0f, #0d0c14);
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+    }
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contacto-info p {
+      color: rgba(240, 236, 228, 0.6);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .contacto-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: rgba(240, 236, 228, 0.7);
+    }
+    .contacto-detail .icon { color: #c9a84c; font-size: 1.1rem; }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(240, 236, 228, 0.4);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(20, 18, 30, 0.6);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 4px;
+      color: #f0ece4;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #c9a84c;
+      box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(240, 236, 228, 0.2);
+    }
+    .form-group textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      border-top: 1px solid rgba(201, 168, 76, 0.08);
+      padding: 3rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(240, 236, 228, 0.4);
+      margin-top: 0.75rem;
+      max-width: 300px;
+      font-weight: 300;
+    }
+    .footer h4 {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #c9a84c;
+      margin-bottom: 1rem;
+    }
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(240, 236, 228, 0.5);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: #c9a84c; }
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: rgba(240, 236, 228, 0.5);
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      border-color: #c9a84c;
+      color: #c9a84c;
+      background: rgba(201, 168, 76, 0.08);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(201, 168, 76, 0.06);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(240, 236, 228, 0.3);
+    }
+    .footer-bottom a {
+      color: rgba(240, 236, 228, 0.4);
+      transition: color 0.3s;
+    }
+    .footer-bottom a:hover { color: #c9a84c; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pulse-dot {
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero .container { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-visual { order: -1; }
+      .hero-card { max-width: 100%; }
+      .metodo-grid { grid-template-columns: 1fr; }
+      .metodo-visual { order: -1; }
+      .testimonios-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      }
+      .nav-list.open { display: flex; }
+      .menu-toggle { display: flex; }
+      .features-grid { grid-template-columns: 1fr; }
+      .testimonios-grid { grid-template-columns: 1fr; }
+      .contacto-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .metodo-stats { flex-wrap: wrap; gap: 1rem; }
+      .word-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon"></div>
+      English Case
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="nav-list" id="navList">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#metodo">El Método</a></li>
+        <li><a href="#palabras">Las 1000 Palabras</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-pattern"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">&#128220; Expediente abierto</div>
+      <h1>
+        Resuelve el misterio del idioma
+        <span class="gold-accent">Conecta, asocia y domina</span>
+        las 1000 palabras clave
+      </h1>
+      <p>
+        Olvida las listas interminables. Nuestro método convierte cada palabra en una pista,
+        cada conexión en un recuerdo. Aprende inglés como un detective resuelve un caso.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">&#128270; Iniciar Investigación</a>
+        <a href="#metodo" class="btn btn-outline">Conocer el Método</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-line"></div>
+      <div class="floating-line"></div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          &#128220; Bitácora del Caso <span>·</span> Últimas conexiones
+        </div>
+        <div class="connection-item">
+          <span class="connection-dot"></span>
+          <span class="connection-word">Investigate</span>
+          <span class="connection-hint">→ "investigar" como Sherlock</span>
+        </div>
+        <div class="connection-item">
+          <span class="connection-dot green"></span>
+          <span class="connection-word">Evidence</span>
+          <span class="connection-hint">→ "evidencia" en la escena</span>
+        </div>
+        <div class="connection-item">
+          <span class="connection-dot blue"></span>
+          <span class="connection-word">Deduce</span>
+          <span class="connection-hint">→ "deducir" por las pistas</span>
+        </div>
+        <div class="hero-card-footer">
+          <small>+997 conexiones activas</small>
+          <span class="badge">&#9679; En vivo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÉTODO ===== -->
+<section class="section metodo" id="metodo">
+  <div class="container">
+    <div class="section-label">El Método del Detective</div>
+    <div class="metodo-grid">
+      <div class="metodo-visual">
+        <div class="thread-card full">
+          <div class="icon">&#128373;</div>
+          <h4>Pista #1: Asocia con tu mundo</h4>
+          <p>Vincula "gossip" con el vecino que siempre habla de más. Tu cerebro retiene emociones e imágenes, no repetición vacía.</p>
+        </div>
+        <div class="thread-card">
+          <div class="icon">&#128279;</div>
+          <h4>Conexión visual</h4>
+          <p>Dibuja mentalmente la escena. Cada palabra es un personaje en tu historia personal.</p>
+        </div>
+        <div class="thread-card">
+          <div class="icon">&#128214;</div>
+          <h4>Bitácora personal</h4>
+          <p>Escribe el "caso" de cada palabra. Al narrar, el cerebro fija el recuerdo para siempre.</p>
+        </div>
+      </div>
+      <div class="metodo-text">
+        <h2>Tu cerebro no memoriza listas,<br><span class="gold-accent">resuelve misterios</span></h2>
+        <div class="divider"></div>
+        <p>
+          El sistema de <strong>Hilos de Conexión</strong> se basa en la neurociencia de la memoria asociativa.
+          En lugar de repetir palabras sin contexto, creas una red de pistas personalizadas que tu cerebro
+          usa para recordar cada término como si fuera la solución de un caso.
+        </p>
+        <p>
+          Cada palabra se convierte en un nodo dentro de tu propio mapa mental. Las conexiones que estableces
+          —historias, imágenes, emociones— son los hilos que te permiten recuperar el vocabulario
+          en fracciones de segundo, incluso en medio de una conversación real.
+        </p>
+        <div class="metodo-stats">
+          <div class="stat-item">
+            <h3>3.2x</h3>
+            <p>más retención que métodos tradicionales</p>
+          </div>
+          <div class="stat-item">
+            <h3>87%</h3>
+            <p>de alumnos alcanzan fluidez conversacional</p>
+          </div>
+          <div class="stat-item">
+            <h3>4.8</h3>
+            <p>calificación promedio de la experiencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Herramientas del Detective</div>
+    <h2 class="section-title">Todo lo que necesitas para<br><span class="gold-accent">resolver el caso</span></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-number">01</span>
+        <div class="feature-icon">&#128230;</div>
+        <h3>Subida de Evidencias</h3>
+        <p>Importa tus listas de vocabulario, artículos o cualquier texto. Nuestro sistema extrae las palabras clave y las prepara para que construyas tus conexiones.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-number">02</span>
+        <div class="feature-icon">&#128279;</div>
+        <h3>Línea de Conexiones</h3>
+        <p>Vincula cada palabra con imágenes, recuerdos, sonidos o historias personales. Construye tu red semántica única y visible.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-number">03</span>
+        <div class="feature-icon">&#128221;</div>
+        <h3>Bitácora del Caso</h3>
+        <p>Escribe el relato detrás de cada conexión. Narrar en tus propias palabras activa la memoria episódica y graba el vocabulario en tu cerebro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1000 PALABRAS ===== -->
+<section class="section palabras" id="palabras">
+  <div class="container">
+    <div class="section-label">Dashboard interactivo</div>
+    <div class="palabras-header">
+      <div>
+        <h2 class="section-title">Las <span class="gold-accent">1000 Palabras</span><br>más usadas del inglés</h2>
+      </div>
+      <div class="palabras-controls">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="connected">Conectadas</button>
+        <button class="filter-btn" data-filter="new">Nuevas</button>
+      </div>
+    </div>
+    <div class="word-grid" id="wordGrid"></div>
+    <div class="word-grid-meta">
+      <span id="connectedCount">0</span> de <span id="totalCount">0</span> palabras conectadas
+      · Haz clic en cualquier palabra para ver su detalle
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-word" id="modalWord">Investigate</div>
+    <div class="modal-translation" id="modalTranslation">investigar</div>
+    <div class="modal-section">
+      <h4>Conexiones asociadas</h4>
+      <div id="modalConnections"></div>
+    </div>
+    <div class="modal-section">
+      <h4>Bitácora del caso</h4>
+      <div class="modal-note" id="modalNote">
+        Recuerda a Sherlock Holmes examinando la escena del crimen con su lupa. Cada detalle importa.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TESTIMONIOS ===== -->
+<section class="section" id="testimonios">
+  <div class="container">
+    <div class="section-label">Inspectores Graduados</div>
+    <h2 class="section-title">Lo que dicen nuestros<br><span class="gold-accent">agentes</span></h2>
+    <div class="testimonios-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Pensé que nunca podría mantener una conversación en inglés. Este método cambió mi forma de aprender. Ahora cada palabra nueva es una pista que resuelvo, no una lista que memorizo."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JW</div>
+          <div class="testimonial-info">
+            <h4>Inspector James W.</h4>
+            <p>Abogado · 6 meses en la Agencia</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"La bitácora de conexiones es mi herramienta favorita. Escribir la historia detrás de cada palabra hizo que el vocabulario se quedara en mi memoria para siempre. Funciona."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DW</div>
+          <div class="testimonial-info">
+            <h4>Dra. Watson</h4>
+            <p>Médica · 8 meses en la Agencia</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Después de años intentando con apps tradicionales, en tres meses noté más avance que en todo el año anterior. Las conexiones personalizadas son la clave."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">EH</div>
+          <div class="testimonial-info">
+            <h4>Elena H.</h4>
+            <p>Diseñadora UX · 3 meses en la Agencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section class="section contacto" id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <div class="section-label">Únete a la Agencia</div>
+        <h2 class="section-title">Solicita tu<br><span class="gold-accent">entrevista de nivelación</span></h2>
+        <p>
+          Cada caso comienza con una investigación preliminar. Cuéntanos sobre ti y te asignaremos
+          un plan de conexiones personalizado. Sin compromiso, solo las primeras pistas.
+        </p>
+        <div class="contacto-detail">
+          <span class="icon">&#128231;</span>
+          <span>hello@englishcase.io</span>
+        </div>
+        <div class="contacto-detail">
+          <span class="icon">&#128222;</span>
+          <span>+44 20 7946 0958</span>
+        </div>
+        <div class="contacto-detail">
+          <span class="icon">&#128205;</span>
+          <span>221B Baker Street, Londres (Oficina Central)</span>
+        </div>
+      </div>
+      <form class="contacto-form" id="contactForm">
+        <div class="form-group">
+          <label for="nombre">Nombre completo</label>
+          <input type="text" id="nombre" placeholder="Ej: John H. Watson" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="agente@correo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Notas del caso</label>
+          <textarea id="mensaje" placeholder="Cuéntanos sobre tu experiencia con el inglés, tus metas y por qué este método te llama la atención..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+          &#128220; Enviar expediente
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo" style="margin-bottom:0.75rem;">
+          <div class="logo-icon"></div>
+          English Case
+        </a>
+        <p>El método de aprendizaje de inglés basado en conexiones, neurociencia y la emoción de resolver un misterio. Cada palabra es una pista. Cada pista, un recuerdo.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#metodo">El Método</a></li>
+          <li><a href="#palabras">Las 1000 Palabras</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Términos del Servicio</a></li>
+          <li><a href="#">Aviso de Cookies</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Redes</h4>
+        <div class="footer-social">
+          <a href="#" aria-label="Twitter / X">&#120143;</a>
+          <a href="#" aria-label="Instagram">&#9879;</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">&#9654;</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 English Case. Todos los derechos reservados.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  (function() {
+    'use strict';
+
+    /* -------- Words Data -------- */
+    const WORDS = [
+      { word: 'Investigate', translation: 'investigar', connected: true, connections: ['Research', 'Examine'], note: 'Sherlock examinando la escena con su lupa. Cada detalle importa.' },
+      { word: 'Evidence', translation: 'evidencia', connected: true, connections: ['Clue', 'Proof'], note: 'Las huellas en la escena del crimen. Todo deja una marca.' },
+      { word: 'Deduce', translation: 'deducir', connected: true, connections: ['Conclude', 'Reason'], note: 'Watson observa, Holmes deduce. De los hechos a la conclusión.' },
+      { word: 'Mystery', translation: 'misterio', connected: false, connections: [], note: '' },
+      { word: 'Clue', translation: 'pista', connected: true, connections: ['Evidence', 'Hint'], note: 'Un cabello olvidado en la escena. La pista que rompe el caso.' },
+      { word: 'Detective', translation: 'detective', connected: false, connections: [], note: '' },
+      { word: 'Witness', translation: 'testigo', connected: false, connections: [], note: '' },
+      { word: 'Suspect', translation: 'sospechoso', connected: false, connections: [], note: '' },
+      { word: 'Curious', translation: 'curioso', connected: true, connections: ['Interested', 'Inquisitive'], note: 'La curiosidad que lleva a la verdad. Como un gato en un callejón.' },
+      { word: 'Connect', translation: 'conectar', connected: false, connections: [], note: '' },
+      { word: 'Memory', translation: 'memoria', connected: true, connections: ['Recall', 'Remind'], note: 'El palacio mental de Holmes. Cada recuerdo tiene una habitación.' },
+      { word: 'Research', translation: 'investigación', connected: false, connections: [], note: '' },
+      { word: 'Analyze', translation: 'analizar', connected: false, connections: [], note: '' },
+      { word: 'Discover', translation: 'descubrir', connected: true, connections: ['Find', 'Uncover'], note: 'Levantar la alfombra y encontrar lo que nadie más vio.' },
+      { word: 'Puzzle', translation: 'rompecabezas', connected: false, connections: [], note: '' },
+      { word: 'Secret', translation: 'secreto', connected: false, connections: [], note: '' },
+      { word: 'Observe', translation: 'observar', connected: true, connections: ['Watch', 'Notice'], note: 'La diferencia entre mirar y observar. Holmes enseñaba a Watson.' },
+      { word: 'Reason', translation: 'razón', connected: false, connections: [], note: '' },
+      { word: 'Logic', translation: 'lógica', connected: false, connections: [], note: '' },
+      { word: 'Conclusion', translation: 'conclusión', connected: true, connections: ['Result', 'End'], note: 'El final del caso. Todas las piezas encajan.' },
+      { word: 'Story', translation: 'historia', connected: false, connections: [], note: '' },
+      { word: 'Question', translation: 'pregunta', connected: false, connections: [], note: '' },
+      { word: 'Answer', translation: 'respuesta', connected: false, connections: [], note: '' },
+      { word: 'Proof', translation: 'prueba', connected: true, connections: ['Evidence', 'Fact'], note: 'La prueba irrefutable. El arma humeante del caso.' },
+      { word: 'Motive', translation: 'motivo', connected: false, connections: [], note: '' },
+      { word: 'Alibi', translation: 'coartada', connected: false, connections: [], note: '' },
+      { word: 'Shadow', translation: 'sombra', connected: true, connections: ['Darkness', 'Follow'], note: 'La sombra en la niebla londinense. Siempre hay algo oculto.' },
+      { word: 'Whisper', translation: 'susurro', connected: false, connections: [], note: '' },
+      { word: 'Silence', translation: 'silencio', connected: false, connections: [], note: '' },
+      { word: 'Truth', translation: 'verdad', connected: true, connections: ['Fact', 'Reality'], note: 'La verdad está ahí fuera. Solo hay que conectar los puntos.' },
+    ];
+
+    /* -------- Render Word Grid -------- */
+    const grid = document.getElementById('wordGrid');
+    const connectedCountEl = document.getElementById('connectedCount');
+    const totalCountEl = document.getElementById('totalCount');
+    let currentFilter = 'all';
+
+    function renderGrid(filter) {
+      const filtered = filter === 'all' ? WORDS :
+                       filter === 'connected' ? WORDS.filter(w => w.connected) :
+                       WORDS.filter(w => !w.connected);
+
+      grid.innerHTML = '';
+      filtered.forEach(w => {
+        const card = document.createElement('div');
+        card.className = 'word-card' + (w.connected ? ' connected' : '');
+        card.innerHTML = `
+          <span class="word-badge">${w.connected ? '&#9679;' : '&#9711;'}</span>
+          ${w.word}
+          <span class="connection-indicator"></span>
+        `;
+        card.addEventListener('click', () => openModal(w));
+        card.dataset.word = w.word;
+        grid.appendChild(card);
+      });
+
+      const connected = WORDS.filter(w => w.connected).length;
+      connectedCountEl.textContent = connected;
+      totalCountEl.textContent = WORDS.length;
+    }
+
+    /* -------- Filter Buttons -------- */
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        currentFilter = this.dataset.filter;
+        renderGrid(currentFilter);
+      });
+    });
+
+    /* -------- Modal -------- */
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+    const modalWord = document.getElementById('modalWord');
+    const modalTranslation = document.getElementById('modalTranslation');
+    const modalConnections = document.getElementById('modalConnections');
+    const modalNote = document.getElementById('modalNote');
+
+    function openModal(word) {
+      modalWord.textContent = word.word;
+      modalTranslation.textContent = word.translation;
+
+      modalConnections.innerHTML = '';
+      if (word.connections && word.connections.length > 0) {
+        word.connections.forEach(conn => {
+          const div = document.createElement('div');
+          div.className = 'modal-connection-line';
+          div.innerHTML = `<span class="word">${conn}</span> <span class="hint">→ palabra asociada</span>`;
+          modalConnections.appendChild(div);
+        });
+      } else {
+        modalConnections.innerHTML = '<div style="color:rgba(240,236,228,0.4);font-size:0.85rem;font-style:italic;">Aún no has creado conexiones para esta palabra.</div>';
+      }
+
+      modalNote.textContent = word.note || 'Escribe tu propia bitácora para esta palabra. ¿Qué historia te ayuda a recordarla?';
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    /* -------- Header Scroll -------- */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* -------- Mobile Menu -------- */
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+    menuToggle.addEventListener('click', function() {
+      this.classList.toggle('active');
+      navList.classList.toggle('open');
+    });
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        navList.classList.remove('open');
+      });
+    });
+
+    /* -------- Scroll Reveal -------- */
+    const revealEls = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      observer.observe(el);
+    });
+
+    /* -------- Form -------- */
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = '&#10003; Expediente enviado';
+      btn.style.background = 'linear-gradient(135deg, #1a5a3a, #1a7a4a)';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        this.reset();
+      }, 3000);
+    });
+
+    /* -------- Init -------- */
+    renderGrid('all');
+  })();
+</script>
+
+</body>
+</html>

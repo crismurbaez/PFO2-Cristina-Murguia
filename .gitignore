@@ -1,0 +1,13 @@
+# OS Metadata files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor configurations (optional)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
