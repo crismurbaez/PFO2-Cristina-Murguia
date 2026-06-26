@@ -290,6 +290,65 @@
             opacity: 0.5;
             font-weight: bold;
         }
+
+        .comparison-section {
+            margin-top: 40px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 30px;
+            text-align: left;
+        }
+
+        .comparison-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            background-color: rgba(13, 15, 18, 0.4);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(197, 168, 128, 0.1);
+            color: var(--accent-gold);
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--accent-gold);
+            width: 25%;
+        }
     </style>
 </head>
 
@@ -346,6 +405,48 @@
                 </div>
                 <div class="arrow">→</div>
             </a>
+        </div>
+
+        <div class="comparison-section">
+            <h2>Expediente Comparativo de Agentes</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Agente 1: Antigravity</th>
+                            <th>Agente 2: OpenCode</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-title">Modelo de IA</td>
+                            <td>Gemini 3.5 Flash (Medium)</td>
+                            <td>DeepSeek V4</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title">Arquitectura</td>
+                            <td>Modular (index, css, js)</td>
+                            <td>Monolítica (index.html integrado)</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title">Interactividad</td>
+                            <td>Tablero dinámico con hilos de conexión</td>
+                            <td>Grilla con modal de detalle</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title">Look & Feel</td>
+                            <td>Neo-Noir / Minimalista Victoriano</td>
+                            <td>Clásico Victoriano Noir</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-title">Autonomía</td>
+                            <td>100% Autónoma (Cero edición manual)</td>
+                            <td>100% Autónoma (Cero edición manual)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <footer>

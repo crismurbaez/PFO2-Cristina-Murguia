@@ -156,3 +156,22 @@ Genera el código completo respetando estas instrucciones detalladas.
 
 #### Testimonios, Formulario & Footer
 ![Testimonios, Formulario & Footer](./img/agente2/screenshot6.png)
+
+---
+
+## 📊 Comparativa de Agentes de IA
+
+Para evaluar el desempeño y la autonomía de cada agente de IA ante el mismo prompt, se ha realizado la siguiente comparativa técnica y funcional:
+
+| Característica / Criterio | Agente 1 - Antigravity IDE (Gemini 3.5 Flash) | Agente 2 - OpenCode Desktop (DeepSeek V4) |
+| :--- | :--- | :--- |
+| **Arquitectura de Archivos** | **Modular (Multi-archivo):** Separado en `index.html` (30 KB), `style.css` (36 KB) y `script.js` (19 KB). | **Monolítica (Mono-archivo):** Todo embebido dentro de un único `index.html` (47 KB). |
+| **Enfoque Estético** | Neo-Noir y minimalismo victoriano con paleta oscura elegante y acentos dorados muy definidos. | Clásico victoriano con tintes de misterio noir, estructurado y enfocado en tarjetas. |
+| **Modularidad del Código** | Alta. La separación lógica facilita el mantenimiento y la legibilidad del código generado. | Media/Baja. Al estar todo en un solo archivo, se dificulta la edición manual posterior. |
+| **Componente Interactivo** | **Tablero con Hilos de Conexión:** Interactividad avanzada para trazar hilos de investigación entre palabras del dashboard. | **Grilla con Modal:** Panel interactivo clásico donde al clickear una palabra se abre un modal de detalle. |
+| **Estilos CSS y Diseño UX** | Animaciones personalizadas fluidas y mayor uso de variables CSS para consistencia. | Estructurado de grillas estándar con diseño limpio y transiciones más conservadoras. |
+| **Cumplimiento del Prompt** | 100% Autónomo. Cumple con todas las secciones y las restricciones solicitadas. | 100% Autónomo. Cumple con todas las secciones sin intervención manual. |
+
+### Conclusiones del Análisis
+1. **Agente 1 (Antigravity IDE - Gemini 3.5 Flash)** destaca por su capacidad de estructurar el código de manera profesional (multi-archivo), lo cual se asemeja más a un flujo de trabajo real de ingeniería de software. Además, su interfaz y la lógica de trazado de conexiones son sumamente dinámicas e interactivas.
+2. **Agente 2 (OpenCode Desktop - DeepSeek V4)** ofrece una solución rápida y compacta en un solo archivo. Si bien cumple perfectamente con las pautas de diseño y la interactividad básica (mediante el modal de detalle), el acoplamiento de estilos y scripts en el HTML lo hace menos escalable.
