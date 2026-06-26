@@ -81,39 +81,78 @@ Debes generar una estructura de archivos web (HTML y CSS embebido o en archivo s
 </constraints>
 
 Genera el código completo respetando estas instrucciones detalladas.
+```
 
 ## 📸 Capturas de Pantalla
 
 ### Agente 1 - Antigravity IDE (Gemini 3.5 Flash)
 
-##Hero & Header
+#### Hero & Header
 ![Hero & Header](./img/agente1/screenshot1.png)
-<img width="100%" alt="Hero & Header" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot1.png" />
-<br>
-<img width="100%" alt="El Método del Detective" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot2.png" />
-<br>
-<img width="100%" alt="Características del Sistema" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot3.png" />
-<br>
-<img width="100%" alt="Tablero de Evidencias - Exploración" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot4.png" />
-<br>
-<img width="100%" alt="Tablero de Evidencias - Conexión de Hilos" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot5.png" />
-<br>
-<img width="100%" alt="Testimonios de Alumnos" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot6.png" />
-<br>
-<img width="100%" alt="Formulario de Registro" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot7.png" />
-<br>
-<img width="100%" alt="Pie de Página" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot8.png" />
+
+---
+
+#### El Método del Detective
+![El Método del Detective](./img/agente1/screenshot2.png)
+
+---
+
+#### Características del Sistema
+![Características del Sistema](./img/agente1/screenshot3.png)
+
+---
+
+#### Tablero de Evidencias - Exploración
+![Tablero de Evidencias - Exploración](./img/agente1/screenshot4.png)
+
+---
+
+#### Tablero de Evidencias - Conexión de Hilos
+![Tablero de Evidencias - Conexión de Hilos](./img/agente1/screenshot5.png)
+
+---
+
+#### Testimonios de Alumnos
+![Testimonios de Alumnos](./img/agente1/screenshot6.png)
+
+---
+
+#### Formulario de Registro
+![Formulario de Registro](./img/agente1/screenshot7.png)
+
+---
+
+#### Pie de Página
+![Pie de Página](./img/agente1/screenshot8.png)
+
+---
 
 ### Agente 2 - OpenCode Desktop (DeepSeek V4)
 
-<img width="100%" alt="Hero & Header" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot1.png" />
-<br>
-<img width="100%" alt="El Método del Detective" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot2.png" />
-<br>
-<img width="100%" alt="Características Principales" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot3.png" />
-<br>
-<img width="100%" alt="Grilla de Palabras Clave" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot4.png" />
-<br>
-<img width="100%" alt="Expediente de Detalle (Modal)" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot5.png" />
-<br>
-<img width="100%" alt="Testimonios, Formulario & Footer" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente2/screenshot6.png" />
+#### Hero & Header
+![Hero & Header](./img/agente2/screenshot1.png)
+
+---
+
+#### El Método del Detective
+![El Método del Detective](./img/agente2/screenshot2.png)
+
+---
+
+#### Características Principales
+![Características Principales](./img/agente2/screenshot3.png)
+
+---
+
+#### Grilla de Palabras Clave
+![Grilla de Palabras Clave](./img/agente2/screenshot4.png)
+
+---
+
+#### Expediente de Detalle (Modal)
+![Expediente de Detalle (Modal)](./img/agente2/screenshot5.png)
+
+---
+
+#### Testimonios, Formulario & Footer
+![Testimonios, Formulario & Footer](./img/agente2/screenshot6.png)
