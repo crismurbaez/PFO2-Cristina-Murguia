@@ -86,6 +86,8 @@ Genera el código completo respetando estas instrucciones detalladas.
 
 ### Agente 1 - Antigravity IDE (Gemini 3.5 Flash)
 
+##Hero & Header
+![Hero & Header](img/agente1/screenshot1.png)
 <img width="100%" alt="Hero & Header" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot1.png" />
 <br>
 <img width="100%" alt="El Método del Detective" src="https://raw.githubusercontent.com/crismurbaez/PFO2-Cristina-Murguia/main/img/agente1/screenshot2.png" />
