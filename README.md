@@ -17,7 +17,7 @@
 ## 🌐 Despliegue (Deploy)
 El proyecto unificado se encuentra desplegado en la plataforma Vercel. La portada de acceso contiene los enlaces directos tanto al texto plano del prompt como a las dos versiones de la Landing Page generadas de forma 100% autónoma por las IA.
 
-🔗 **Link al Deploy Unificado:** [PEGAR_AQUÍ_TU_LINK_DE_VERCEL]
+🔗 **Link al Deploy Unificado:** https://pfo-2-cristina-murguia.vercel.app/
 
 ---
 
