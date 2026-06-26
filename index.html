@@ -250,6 +250,46 @@
             color: var(--text-muted);
             letter-spacing: 1px;
         }
+
+        .student-info {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px 15px;
+            background-color: rgba(13, 15, 18, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin: 0 auto 30px auto;
+            font-size: 0.85rem;
+            max-width: 90%;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .info-label {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-value {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .info-separator {
+            color: var(--accent-gold);
+            opacity: 0.5;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -263,6 +303,23 @@
             Panel de acceso unificado para la evaluación del comportamiento autónomo de Agentes de Inteligencia
             Artificial mediante ingeniería de instrucciones.
         </p>
+
+        <div class="student-info">
+            <div class="info-item">
+                <span class="info-label">Estudiante:</span>
+                <span class="info-value">Cristina Laura Murguía Báez</span>
+            </div>
+            <span class="info-separator">•</span>
+            <div class="info-item">
+                <span class="info-label">Carrera:</span>
+                <span class="info-value">Tecnicatura Superior en Desarrollo de Software</span>
+            </div>
+            <span class="info-separator">•</span>
+            <div class="info-item">
+                <span class="info-label">Comisión:</span>
+                <span class="info-value">Comisión "D"</span>
+            </div>
+        </div>
 
         <div class="links-grid">
             <div class="case-link" id="openPromptBtn">
