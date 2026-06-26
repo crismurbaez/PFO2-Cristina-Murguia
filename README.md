@@ -1,6 +1,6 @@
 # Práctica Formativa Obligatoria 2: Prompt Engineering en Agentes de IA
 
-## 🕵️‍♂️ Proyecto: English Case (Pathword)
+## 🕵️‍♂️ Proyecto: English Case
 **Institución:** IFTS N.°29  
 **Materia:** Inteligencia Artificial  
 **Fecha de Entrega:** 26/06/2026  
